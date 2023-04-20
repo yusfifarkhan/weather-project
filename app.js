@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const axios = require("axios");
 require("dotenv").config();
-const serverPort = 3040;
+const serverPort = 3000;
 
 /** Utility function */
 const getUniqueListBy = (arr, key) => {
@@ -58,7 +58,8 @@ app.set("view engine", "ejs");
 
 /** Routes */
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.render("signup");
+  res.end();
 });
 
 app.post("/", async (req, res) => {
@@ -77,6 +78,6 @@ app.post("/", async (req, res) => {
 });
 
 /** Server Start */
-app.listen(serverPort, () => {
+app.listen(process.env.PORT || serverPort, () => {
   console.log(`Server is running at: ${serverPort}`);
 });
