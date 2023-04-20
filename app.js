@@ -2,7 +2,7 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const axios = require("axios");
-// require("dotenv").config();
+require("dotenv").config();
 const serverPort = 3040;
 
 /** Utility function */
